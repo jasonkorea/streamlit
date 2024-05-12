@@ -13,7 +13,6 @@ input_title = st.text_input("시의 주제를 제시해주세요.")
 if st.button("시 생성"):
     with st.spinner("시를 작성 중입니다..."):
         try:
-            # 환경 변수 또는 Streamlit의 secret에서 API 키 로드
             apiKey = os.getenv("OPENAI_API_KEY") or st.secrets["OPENAI_API_KEY"]
             llm = ChatOpenAI(api_key=apiKey, model="gpt-4-turbo")
             result = llm.invoke(f"시제가 '{input_title}'이고 라임과 펀치라인이 엄격한 시를 써줘.")

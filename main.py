@@ -6,7 +6,7 @@ import streamlit as st
 from langchain_openai import ChatOpenAI
 
 # Streamlit 앱의 제목 설정
-st.title(':sunglasses: :blue_book: 인공지능 시인')
+st.title(':sunglasses: :blue_book: 인공지능 시인 - 개발자 : 정재훈')
 
 # 시의 주제 입력 받기
 input_title = st.text_input("시의 주제를 제시해주세요.")

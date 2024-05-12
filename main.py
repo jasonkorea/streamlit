@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+import os
 load_dotenv()
 
 import streamlit as st
@@ -15,7 +16,8 @@ if st.button("시 생성"):
     with st.spinner("시를 작성 중입니다..."):
         try:
             # ChatOpenAI 인스턴스 생성 및 시 생성 요청
-            llm = ChatOpenAI()
+            apiKey = os.getenv("OPENAI_API_KEY")
+            llm = ChatOpenAI(api_key=apiKey, model="gpt-4-turbo")
             result = llm.invoke(f"시제가 '{input_title}'이고 라임과 펀치라인이 엄격한 시를 써줘.")
             st.write(result.content)  # 결과 출력
         except Exception as e:
